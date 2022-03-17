@@ -5,25 +5,27 @@ import Home from './components/home'
 import LogIn from './components/logIn';
 import SignUp from './components/signUp';
 import Header from './components/header'
-import {getAuth, onAuthStateChanged} from 'firebase/auth'
+import {getAuth, onAuthStateChanged, prodErrorMap} from 'firebase/auth'
+
+
+require('dotenv').config();
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// import firebase config
 const firebaseConfig = {
-    apiKey: "AIzaSyCvghWmEKLvML0aGufsmFmWTELxgs03aSA",
-    authDomain: "hhcodingtest.firebaseapp.com",
-    projectId: "hhcodingtest",
-    storageBucket: "hhcodingtest.appspot.com",
-    messagingSenderId: "770679417670",
-    appId: "1:770679417670:web:39c531cb45a7495d7e1347",
-    measurementId: "G-3BBYB7S06L"
-  };
-  
+    apiKey: process.env.FIREBASE_APIKEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID,
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID, 
+}
 
-require('dotenv').config();
 function App() {
     const [user, setUser] = useState('');
     useEffect(() => {
@@ -32,7 +34,8 @@ function App() {
             await onAuthStateChanged(auth, (user) => setUser(user?.displayName));
         }
         func()
-    })
+    });
+
 	return (
 		<BrowserRouter>
             <Header user={user}/>
