@@ -12,6 +12,7 @@ const LogIn = ({setUser}) => {
     const handleGoogleLogin = async () => {
         const user = await googleLogin();
         await setUser(user?.displayName);
+        // might need await here...
         history.push('/')
     }
     const emailLogin = async () => {
