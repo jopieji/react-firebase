@@ -15,27 +15,6 @@ const firebaseApp = app;
 // get a reference to the storage service
 const storage = getStorage(firebaseApp);
 
-/*
-// Points to 'images'
-const imagesRef = ref(storageRef, 'images');
-
-// Points to 'images/space.jpg'
-// Note that you can use variables to create child values
-const fileName = 'space.jpg';
-const spaceRef = ref(imagesRef, fileName);
-
-// File path is 'images/space.jpg'
-const path = spaceRef.fullPath;
-
-// File name is 'space.jpg'
-const name = spaceRef.name;
-*/
-// need a reference to the full path of the file to upload
-
-
-
-
-
 const Home = ({user}) => {
     // progress state
     const [ progress, setProgress ] = useState(0);
@@ -91,7 +70,7 @@ const Home = ({user}) => {
             <br/>
             <br/>
             <div className='homePage'>
-                <img src={image}></img>
+                <img src={image} alt=""></img>
             </div>
         </>
     )
