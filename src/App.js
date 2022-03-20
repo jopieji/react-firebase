@@ -21,10 +21,11 @@ function App() {
     });
 
     // check to see if firebase set up correctly
+    /*
     useEffect(() => {
-        console.log(app);
+        //console.log(app);
     }, []);
-
+    */
 	return (
 		<BrowserRouter>
             <Header user={user}/>
