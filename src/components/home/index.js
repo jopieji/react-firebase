@@ -8,7 +8,7 @@ import app from "../../firebase/firebase.js";
 
 // react imports
 import { useState } from 'react';
-//import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 
 
@@ -19,7 +19,7 @@ const Home = ({user}) => {
     // get a reference to the storage service
     const storage = getStorage(firebaseApp);
 
-    //const history = useHistory()
+    const history = useHistory()
     // progress state
     const [ progress, setProgress ] = useState(0);
     const [ image, setImage ] = useState(null);
@@ -49,7 +49,7 @@ const Home = ({user}) => {
                 setImage(url);
             });
         });
-        //history.push("/");
+        history.push("/");
     };
 
     return (
